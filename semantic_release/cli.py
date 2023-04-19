@@ -400,15 +400,15 @@ def publish(
                 noop=noop, verbose=verbose, skip_existing=retry
             )
 
-        if check_token():
-            # Update changelog on HVCS
-            logger.info("Posting changelog to HVCS")
-            try:
-                post_changelog(owner, name, new_version, changelog_md)
-            except GitError:
-                logger.error("Posting changelog failed")
-        else:
-            logger.warning("Missing token: cannot post changelog to HVCS")
+        # if check_token():
+        #    # Update changelog on HVCS
+        #    logger.info("Posting changelog to HVCS")
+        #    try:
+        #        post_changelog(owner, name, new_version, changelog_md)
+        #    except GitError:
+        #        logger.error("Posting changelog failed")
+        #else:
+        #    logger.warning("Missing token: cannot post changelog to HVCS")
 
         # Upload to GitHub Releases
         if upload_release:
